@@ -12,6 +12,9 @@ env:
   LIBRDKAFKA_TAG: v2.4.0
   BUILD_SUB_DIR:  builds/sub-build
 
+permissions:
+  contents: read
+
 jobs:
   kafka-api-tests:
     runs-on: ${{ matrix.os }}
@@ -95,7 +98,7 @@ jobs:
             test-labels:       robustness
 
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@f43a0e5ff2bd294095638e18286ca9a3d1956744 # v3.6.0
 
       - name: Preparation
         if: ${{!contains(matrix.os, 'windows')}}
@@ -287,7 +290,7 @@ jobs:
           - test-labels: ''
 
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@f43a0e5ff2bd294095638e18286ca9a3d1956744 # v3.6.0
 
       - name: Install Dependencies
         run: |

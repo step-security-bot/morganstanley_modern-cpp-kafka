@@ -9,6 +9,9 @@ on:
 env:
   DEMO_PROJ_DIR: demo_projects_for_build/conan_build
 
+permissions:
+  contents: read
+
 jobs:
   kafka-api-demo-conan-build:
     strategy:
@@ -24,7 +27,7 @@ jobs:
       OS_VERSION: ${{ matrix.os }}
 
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@ee0669bd1cc54295c223e0bb666b733df41de1c5 # v2.7.0
 
       - name: Prepare
         run: |
